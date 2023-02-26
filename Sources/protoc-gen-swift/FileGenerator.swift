@@ -102,7 +102,9 @@ class FileGenerator {
             }
         }
 
+        p.print("// @@protoc_insertion_point(additional_imports)")
         p.print("\n")
+
         generateVersionCheck(printer: &p)
 
         let extensionSet =
@@ -195,6 +197,7 @@ class FileGenerator {
                 m.generateRuntimeSupport(printer: &p, file: self, parent: nil)
             }
         }
+        p.print("// @@protoc_insertion_point(global_scope)")
     }
 
     private func generateVersionCheck(printer p: inout CodePrinter) {
